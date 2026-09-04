@@ -4,6 +4,7 @@
 [En](./README.md)
 
 ## Описание
+![Logo](./chrome.svg "Chrome")
 
 Драйвер управления браузером.
 Дравер реализует основные домены управления браузером Chrome DevTools Protocol:

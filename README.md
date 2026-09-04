@@ -4,6 +4,7 @@
 [Русский](./README_ru.md)
 
 ## Description
+![Logo](./chrome.svg "Chrome")
 
 Browser control driver.
 Draver implements the core browser control domains of the Chrome DevTools Protocol:
