@@ -1,5 +1,10 @@
 # Golang Chrome DevTools protocol
 
+## Переводы
+[En](./README.md)
+
+## Описание
+
 Драйвер управления браузером.
 Дравер реализует основные домены управления браузером Chrome DevTools Protocol:
 - Browser - Управление браузером;
@@ -15,6 +20,8 @@
 - Сбор информации (scraping).
 - Создание ботов.
 
+## Установка
+
 ```
 go get github.com/skvdmt/chrome
 ```
@@ -26,6 +33,5 @@ go get github.com/skvdmt/chrome
 ## Ссылки
 
 - [Источник](https://github.com/skvdmt/chrome)
-- [Образ Docker](https://hub.docker.com/u/skvdmt/chrome)
 - [Автор](https://skvdmt.ru/)
 - [Документация управления Chrome](https://chromedevtools.github.io/devtools-protocol/)
