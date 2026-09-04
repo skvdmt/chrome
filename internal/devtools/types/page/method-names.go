@@ -1,0 +1,27 @@
+package page
+
+const (
+	ADD_SCRIPT_TO_EVALUATE_ON_NEW_DOCUMENT = "Page.addScriptToEvaluateOnNewDocument"
+	BRING_TO_FRONT                         = "Page.bringToFront"
+	CAPTURE_SCREENSHOT                     = "Page.captureScreenshot"
+	CLOSE                                  = "Page.close"
+	CREATE_ISOLATED_WORLD                  = "Page.createIsolatedWorld"
+	DISABLE                                = "Page.disable"
+	ENABLE                                 = "Page.enable"
+	GET_APP_MANIFEST                       = "Page.getAppManifest"
+	GET_FRAME_TREE                         = "Page.getFrameTree"
+	GET_LAYOUT_METRICS                     = "Page.getLayoutMetrics"
+	GET_NAVIGATION_HISTORY                 = "Page.getNavigationHistory"
+	HANDLE_JAVA_SCRIPT_DIALOG              = "Page.handleJavaScriptDialog"
+	NAVIGATE                               = "Page.navigate"
+	NAVIGATE_TO_HISTORY_ENTRY              = "Page.navigateToHistoryEntry"
+	PRINT_TO_PDF                           = "Page.printToPDF"
+	RELOAD                                 = "Page.reload"
+	REMOVE_SCRIPT_TO_EVALUATE_ON_DOCUMENT  = "Page.removeScriptToEvaluateOnNewDocument"
+	RESET_NAVIGATION_HISTORY               = "Page.resetNavigationHistory"
+	SET_BYPASS_CSP                         = "Page.setBypassCSP"
+	SET_DOCUMENT_CONTENT                   = "Page.setDocumentContent"
+	SET_INTERCEPT_FILE_CHOISER_DIALOG      = "Page.setInterceptFileChooserDialog"
+	SET_LIFECYCLE_EVENTS_ENABLED           = "Page.setLifecycleEventsEnabled"
+	STOP_LOADING                           = "Page.stopLoading"
+)
