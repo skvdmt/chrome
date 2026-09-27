@@ -22,13 +22,15 @@ func (d *Driver) WaitNodeText(selector string, options ...wait_node.Option) (str
 // WaitNode Ожидание узла.
 func (d *Driver) WaitNode(selector string, options ...wait_node.Option) (*dom.Node, error) {
 	c := wait_node.NewConfig()
+	for _, o := range options {
+		o(c)
+	}
 	s := time.Now()
 	for {
 		if s.Add(c.Timeout).UnixNano() < time.Now().UnixNano() {
 			return nil, model.ERR_RESPONSE_TIMEOUT
 		}
 		d.debug.Debug(fmt.Sprintf("try get node by %s selector", selector))
-
 		id, err := d.Dom.QuerySelector(selector, c.QuerySelectorOptions...)
 		if err != nil {
 			time.Sleep(c.Interval)
@@ -42,8 +44,7 @@ func (d *Driver) WaitNode(selector string, options ...wait_node.Option) (*dom.No
 			time.Sleep(c.Interval)
 			continue
 		}
-		d.debug.Debug(fmt.Sprintf("node geted by %s selector", selector))
-
+		d.debug.Debug(fmt.Sprintf("node got by %s selector", selector))
 		return n, nil
 	}
 }

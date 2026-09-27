@@ -156,7 +156,7 @@ func (i *Input) EmulateTouchFromMouseEvent(
 
 // ImeSetComposition Этот метод устанавливает текущий текст-кандидат для IME.
 // Используйте imeCommitComposition для подтверждения окончательного текста.
-// Используйте imeSetComposition с пустой строкой в ​​качестве текста для отмены ввода.
+// Используйте imeSetComposition с пустой строкой в качестве текста для отмены ввода.
 func (i *Input) ImeSetComposition(
 	text string,
 	selectionStart, selectionEnd int,

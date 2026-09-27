@@ -16,6 +16,8 @@ func (d *Driver) Click(nodeId dom.NodeId, option ...ClickOption) error {
 			return err
 		}
 	}
+	// TODO
+	_ = nodeId
 	return nil
 }
 

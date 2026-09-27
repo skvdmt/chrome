@@ -8,7 +8,7 @@ import (
 	"github.com/skvdmt/chrome/internal/tools"
 )
 
-// main Точка входа в приложение.
+// Точка входа в приложение.
 func main() {
 	if err := start(); err != nil {
 		log.Fatal(err)
@@ -21,7 +21,9 @@ func start() error {
 	if err := tools.WaitTestServer(); err != nil {
 		return err
 	}
-	defer tools.StopTestServer()
+	defer func() {
+		_ = tools.StopTestServer()
+	}()
 	if err := headerTest(); err != nil {
 		return err
 	}
@@ -63,7 +65,7 @@ func headerTest() error {
 	}
 	if got != expected {
 		return fmt.Errorf(
-			`error: node %s; text expetted: "%s"; got "%s"`,
+			`error: node %s; text expected: "%s"; got "%s"`,
 			selector,
 			expected,
 			got,

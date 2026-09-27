@@ -145,7 +145,9 @@ func (b *Browser) GetHistogram(name string, options ...get_histogram.Option) (*b
 
 // GetHistograms Гистограммы Chrome.
 func (b *Browser) GetHistograms(name string, options ...get_histograms.Option) ([]*browser.Histogram, error) {
-	c := &get_histograms.Config{}
+	c := &get_histograms.Config{
+		Name: name,
+	}
 	for _, o := range options {
 		o(c)
 	}

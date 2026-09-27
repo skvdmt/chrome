@@ -10,7 +10,7 @@ import (
 // Option Опция.
 type Option func(c *Config)
 
-// WithTimeout Установка таймаута ожидания узла.
+// WithTimeout Установка тайм-аута ожидания узла.
 func WithTimeout(timeout time.Duration) Option {
 	return func(c *Config) {
 		c.Timeout = timeout

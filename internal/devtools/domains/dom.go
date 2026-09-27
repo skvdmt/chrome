@@ -181,11 +181,11 @@ func (d *Dom) GetNodeForLocation(x, y int, options ...get_node_for_location.Opti
 		return nil, nil, nil, err
 	}
 	e := struct {
-		// Resulting node.
+		// Результирующий узел.
 		BackendNodeId *dom.BackendNodeId `json:"backendNodeId"`
-		//Frame this node belongs to.
+		// Фрейм, к которому относится этот узел.
 		FrameId *page.FrameId `json:"frameId"`
-		// Id of the node at given coordinates, only when enabled and requested document.
+		// Идентификатор узла по заданным координатам (только если эта функция включена и был запрошен документ).
 		NodeId *dom.NodeId `json:"nodeId"`
 	}{}
 	model.ForceJSONUnmarshal(r, &e)
@@ -1022,7 +1022,9 @@ func (d *Dom) PushNodeByPathToFrontend(path string) (*dom.NodeId, error) {
 		model.ForceJSONMarshal(struct {
 			// Путь к узлу в проприетарном формате.
 			Path string `json:"path"`
-		}{}),
+		}{
+			Path: path,
+		}),
 		model.WithSessionId(d.CurrentSessionId),
 	)
 	if err != nil {
@@ -1071,7 +1073,7 @@ func (d *Dom) Redo() error {
 }
 
 // SetInspectedNode Позволяет консоли обращаться к узлу с заданным идентификатором
-// через $x (подробнее о функциях $x см. в разделе «API командной строки»).
+// через $x (подробнее о функциях $x см. В разделе «API командной строки»).
 func (d *Dom) SetInspectedNode(nodeId *dom.NodeId) error {
 	return d.client.Exec(
 		dom.SET_INSPECTED_NODE,
@@ -1092,7 +1094,9 @@ func (d *Dom) SetNodeStackTracesEnabled(enable bool) error {
 		model.ForceJSONMarshal(struct {
 			// Включить или отключить.
 			Enable bool `json:"enable"`
-		}{}),
+		}{
+			Enable: enable,
+		}),
 		model.WithSessionId(d.CurrentSessionId),
 	)
 }

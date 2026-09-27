@@ -63,12 +63,12 @@ type Driver struct {
 }
 
 // NewDriver Конструктор.
-func NewDriver(option ...driverOption) (*Driver, error) {
+func NewDriver(option ...DriverOption) (*Driver, error) {
 	return NewDriverWithContext(context.Background(), option...)
 }
 
 // NewDriverWithContext Конструктор с контекстом.
-func NewDriverWithContext(ctx context.Context, option ...driverOption) (*Driver, error) {
+func NewDriverWithContext(ctx context.Context, option ...DriverOption) (*Driver, error) {
 	// Конфигурация по-умолчанию.
 	d := &Driver{
 		ctx:    ctx,
@@ -173,7 +173,7 @@ func (d *Driver) Close() error {
 	return nil
 }
 
-// CurrentTarget Получить id текущей вклдаки.
+// CurrentTargetId Получить id текущей вклдаки.
 func (d *Driver) CurrentTargetId() (*target.TargetId, error) {
 	for tid, sid := range d.sessions {
 		if sid == *d.Dom.CurrentSessionId {
@@ -183,7 +183,7 @@ func (d *Driver) CurrentTargetId() (*target.TargetId, error) {
 	return nil, model.ERR_TARGET_NOT_FOUND
 }
 
-// exec Выполнение команды запуска chrome.
+// Exec Выполнение команды запуска chrome.
 // Обработка вывода.
 // Получение адреса сервера управления.
 // Установка соединение с сервером по WebSocket.
@@ -287,16 +287,17 @@ func (d *Driver) removeUserDataDir() error {
 		return model.ERR_USER_DATA_DIR_NOT_SET
 	}
 	// Костыль. 5 попыток удалить дирикторию.
+	var err error
 	for i := 1; i <= 5; i++ {
-		err := os.RemoveAll(p)
-		if err != nil && i <= 5 {
+		err = os.RemoveAll(p)
+		if err != nil {
 			time.Sleep(time.Millisecond * 20)
 			continue
 		}
-		if err != nil {
-			return err
-		}
 		break
+	}
+	if err != nil {
+		return err
 	}
 	d.debug.Debug("chrome user data dir removed")
 	return nil

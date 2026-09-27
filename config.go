@@ -7,7 +7,7 @@ import (
 const (
 	// Таймаут клиента.
 	CLIENT_TIMEOUT = time.Second * 10
-	// Таймаут поиска узла по селектору.
+	// Тайм-аут поиска узла по селектору.
 	NODE_BY_SELECTOR_TIMEOUT = time.Second * 3
 	// Интервал поиска узла по селектору.
 	NODE_BY_SELECTOR_INTERVAL = time.Millisecond * 50

@@ -7,7 +7,7 @@
 ![Logo](./chrome.svg "Chrome")
 
 Browser control driver.
-Draver implements the core browser control domains of the Chrome DevTools Protocol:
+Driver implements the core browser control domains of the Chrome DevTools Protocol:
 - Browser - Browser control;
 - DOM - Access to read/write operations for the Document Object Model;
 - Input - Data entry;
@@ -21,7 +21,7 @@ Draver implements the core browser control domains of the Chrome DevTools Protoc
 - Scraping.
 - Creating bots.
 
-## Instalation
+## Installation
 
 ```
 go get github.com/skvdmt/chrome

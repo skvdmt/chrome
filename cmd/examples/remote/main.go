@@ -7,7 +7,7 @@ import (
 	"github.com/skvdmt/chrome"
 )
 
-// main Точка входа в приложение.
+// Точка входа в приложение.
 func main() {
 	if err := headerTest(); err != nil {
 		log.Fatal(err)
@@ -50,7 +50,7 @@ func headerTest() error {
 	}
 	if got != expected {
 		return fmt.Errorf(
-			`error: node %s; text expetted: "%s"; got "%s"`,
+			`error: node %s; text expected: "%s"; got "%s"`,
 			selector,
 			expected,
 			got,

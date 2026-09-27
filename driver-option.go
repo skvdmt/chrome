@@ -2,19 +2,19 @@ package chrome
 
 import "github.com/skvdmt/chrome/internal/model"
 
-// driverOption Функциональная опция драйвера.
-type driverOption func(d *Driver) error
+// DriverOption Функциональная опция драйвера.
+type DriverOption func(d *Driver) error
 
 // WithPath Указание пути к google-chrome.
-func WithPath(filename string) driverOption {
+func WithPath(filename string) DriverOption {
 	return func(d *Driver) error {
 		d.path = filename
 		return nil
 	}
 }
 
-// Указание аргументов из файла.
-func WithArgsFromFile(filename string) driverOption {
+// WithArgsFromFile Указание аргументов из файла.
+func WithArgsFromFile(filename string) DriverOption {
 	return func(d *Driver) error {
 		a, err := model.NewArgsFromFile(filename)
 		if err != nil {
@@ -25,8 +25,8 @@ func WithArgsFromFile(filename string) driverOption {
 	}
 }
 
-// Указание аргумента и при необходимости его значения.
-func SetArg(name string, value ...string) driverOption {
+// SetArg Указание аргумента и при необходимости его значения.
+func SetArg(name string, value ...string) DriverOption {
 	return func(d *Driver) error {
 		if len(value) > 0 {
 			d.args.Set(name, value[0])
@@ -38,7 +38,7 @@ func SetArg(name string, value ...string) driverOption {
 }
 
 // WithDebug Включение отладки.
-func WithDebug() driverOption {
+func WithDebug() DriverOption {
 	return func(d *Driver) error {
 		d.debug.Enable()
 		return nil
@@ -47,7 +47,7 @@ func WithDebug() driverOption {
 
 // WithRemoveUserDataDirAfterClose Удаление пользовательской
 // дириктории chrome после закрытия.
-func WithRemoveUserDataDirAfterClose() driverOption {
+func WithRemoveUserDataDirAfterClose() DriverOption {
 	return func(d *Driver) error {
 		d.removeUserDataDirAfterClose = true
 		return nil

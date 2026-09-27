@@ -276,6 +276,9 @@ func (p *Page) HandleJavaScriptDialog(
 	c := &handle_java_script_dialog.Config{
 		Accept: accept,
 	}
+	for _, o := range options {
+		o(c)
+	}
 	return p.client.Exec(
 		page.HANDLE_JAVA_SCRIPT_DIALOG,
 		model.ForceJSONMarshal(c),
@@ -283,7 +286,7 @@ func (p *Page) HandleJavaScriptDialog(
 	)
 }
 
-// Navigate Перенаправляет на текущую страницу по указанному URL-адресу.
+// Navigate Перенаправляет на текущую страницу по-указанному URL-адресу.
 func (p *Page) Navigate(u string, options ...navigate.Option) (
 	FrameId *page.FrameId,
 	LoaderId *network.LoaderId,
@@ -293,6 +296,9 @@ func (p *Page) Navigate(u string, options ...navigate.Option) (
 ) {
 	c := &navigate.Config{
 		Url: u,
+	}
+	for _, o := range options {
+		o(c)
 	}
 	r, err := p.client.Query(
 		page.NAVIGATE,

@@ -39,7 +39,7 @@ func (t *Target) ActivateTarget(targetId *target.TargetId) error {
 	)
 }
 
-// AttachToTarget Прикрепляется к вклдаке с заданным идентификатором..
+// AttachToTarget Прикрепляется к вклдаке с заданным идентификатором.
 func (t *Target) AttachToTarget(
 	targetId *target.TargetId,
 	options ...attach_to_target.Option,
@@ -62,7 +62,7 @@ func (t *Target) AttachToTarget(
 }
 
 // CloseTarget Закрывает вкладку.
-func (t *Target) СloseTarget(targetId *target.TargetId) error {
+func (t *Target) CloseTarget(targetId *target.TargetId) error {
 	return t.client.Exec(
 		target.CLOSE_TARGET,
 		model.ForceJSONMarshal(struct {
@@ -223,7 +223,7 @@ func (t *Target) AttachToBrowserTarget() (*target.SessionId, error) {
 }
 
 // AutoAttachRelated Добавляет указанную цель в список целей, которые будут
-// отслеживаться на предмет создания связанных целей (таких как дочерние
+// отслеживаться на предмет создания связанных целей (таких, как дочерние
 // фреймы, дочерние рабочие процессы и новые версии сервис-воркеров) и
 // сообщаться через attachedToTarget. Указанная цель также автоматически
 // подключается. Это отменяет действие любого предыдущего SetAutoAttach
