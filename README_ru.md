@@ -35,4 +35,4 @@ go get github.com/skvdmt/chrome
 
 - [Источник](https://github.com/skvdmt/chrome) — Исходный код
 - [Скиданов Дмитрий](https://skvdmt.ru/) — Автор
-- [Мануал](https://chromedevtools.github.io/devtools-protocol/) Документация по работе с сервером управления Chrome
+- [Мануал](https://chromedevtools.github.io/devtools-protocol/) — Документация по работе с сервером управления Chrome
