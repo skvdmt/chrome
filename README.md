@@ -8,12 +8,12 @@
 
 Browser control driver.
 Driver implements the core browser control domains of the Chrome DevTools Protocol:
-- Browser - Browser control;
-- DOM - Access to read/write operations for the Document Object Model;
-- Input - Data entry;
-- Network - Page network activity;
-- Page - Interaction with the page;
-- Target - Tab management.
+- Browser — Browser control;
+- DOM — Access to read/write operations for the Document Object Model;
+- Input — Data entry;
+- Network — Page network activity;
+- Page — Interaction with the page;
+- Target — Tab management.
 
 ## Used for
 
@@ -33,6 +33,6 @@ go get github.com/skvdmt/chrome
 
 ## Links
 
-- [Source](https://github.com/skvdmt/chrome)
-- [Author](https://skvdmt.ru/)
-- [Chrome management documentation](https://chromedevtools.github.io/devtools-protocol/)
+- [Source](https://github.com/skvdmt/chrome) — Source code
+- [Dmitry Skidanov](https://skvdmt.ru/) — Author
+- [Manual](https://chromedevtools.github.io/devtools-protocol/) — Chrome management documentation
